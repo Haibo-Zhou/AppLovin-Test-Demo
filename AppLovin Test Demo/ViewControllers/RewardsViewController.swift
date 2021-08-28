@@ -97,7 +97,7 @@ class RewardsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .myGreen
         title = "Rewards Ad Demo"
         
         // Set UI layout

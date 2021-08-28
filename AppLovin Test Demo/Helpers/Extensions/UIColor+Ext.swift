@@ -20,6 +20,7 @@ extension UIColor {
     static let myPuple: UIColor = UIColor(r: 164, g: 42, b: 255)
     static let myPink: UIColor = UIColor(r: 252, g: 209, b: 210)
     static let myEmailBlue: UIColor = UIColor(r: 29, g: 120, b: 242)
+    static let AppLovinBlue: UIColor = UIColor(r: 10, g: 131, b: 170)
     
 //    static let bgColor: UIColor = UIColor(named: "bgColor")!
 //    static let buttonColor: UIColor = UIColor(named: "buttonColor")!
@@ -30,4 +31,5 @@ extension UIColor {
     static let myYellowHexcode: UInt = 0xFFD110
     static let myPupleHexcode: UInt = 0xA42AFF
     static let myPinkHexcode: UInt = 0xFCD1D2
+    static let AppLovinBlueHexcode: UInt = 0x0A83AA
 }

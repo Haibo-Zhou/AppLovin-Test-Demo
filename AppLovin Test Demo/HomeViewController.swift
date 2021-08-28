@@ -52,81 +52,42 @@ class HomeViewController: UIViewController, SFSafariViewControllerDelegate {
     // MARK: - Configure static cell
     func configureCells() {
         models.append(Section(title: ConstantNames.interstitialAndBanner, options: [
-            HomeOption(title: ConstantNames.interstitials, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
+            HomeOption(title: ConstantNames.interstitials, titleColor: .label, icon: UIImage(systemName: ConstantNames.starHalfFill), iconBackgroundColor: .myGreen) { [weak self] in
                 let vc = InterstitialViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
             },
-            HomeOption(title: ConstantNames.banners, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
+            HomeOption(title: ConstantNames.banners, titleColor: .label, icon: UIImage(systemName: ConstantNames.starFill), iconBackgroundColor: .myBlue) { [weak self] in
                 let vc = BannerViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
             },
         ]))
         
         models.append(Section(title: ConstantNames.rewards, options: [
-            HomeOption(title: ConstantNames.rewardA, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
+            HomeOption(title: ConstantNames.rewardA, titleColor: .label, icon: UIImage(systemName: ConstantNames.letterA), iconBackgroundColor: .systemPink) { [weak self] in
                 let vc = RewardsViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
             },
-            HomeOption(title: ConstantNames.rewardB, titleColor: .label, icon: UIImage(systemName: "envelope.fill"), iconBackgroundColor: .myEmailBlue) { [weak self] in
+            HomeOption(title: ConstantNames.rewardB, titleColor: .label, icon: UIImage(systemName: ConstantNames.letterB), iconBackgroundColor: .myPuple) { [weak self] in
                 let vc = RewardsBViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
-            },
-            HomeOption(title: "Twitter page", titleColor: .label, icon: UIImage(systemName: "envelope.fill"), iconBackgroundColor: .myEmailBlue) { [weak self] in
-                self?.openTwitter()
-            },
+            }
         ]))
         
         models.append(Section(title: ConstantNames.support, options: [
-            HomeOption(title: ConstantNames.supportSite, titleColor: .label, icon: UIImage(systemName: "hand.raised.fill"), iconBackgroundColor: .myEmailBlue) { [weak self] in
-                guard let url = URL(string: "https://www.haibosfashion.com/products/ohmusic/oh-music-privacy-policy/") else { return }
+            HomeOption(title: ConstantNames.supportSite, titleColor: .label, icon: UIImage(named: "logo"), iconBackgroundColor: .AppLovinBlue) { [weak self] in
+                guard let url = URL(string: ConstantNames.supportSiteURL) else { return }
                 self?.openMyURL(webURL: url)
             },
-            HomeOption(title: "Terms Of Service", titleColor: .label, icon: UIImage(systemName: "doc.plaintext.fill"), iconBackgroundColor: .myEmailBlue) { [weak self] in
-                guard let url = URL(string: "https://www.haibosfashion.com/products/ohmusic/oh-music-terms-of-services/") else { return }
-                self?.openMyURL(webURL: url)
+            HomeOption(title: "TBD...", titleColor: .label, icon: UIImage(systemName: ConstantNames.tbd), iconBackgroundColor: .systemGray3) {
+                
             },
         ]))
         
         models.append(Section(title: "", options: [
-            HomeOption(title: "TBD...", titleColor: .label, icon: UIImage(systemName: "bahtsign.circle"), iconBackgroundColor: .systemPink) {
+            HomeOption(title: "TBD...", titleColor: .label, icon: UIImage(systemName: ConstantNames.tbd), iconBackgroundColor: .systemGray3) {
                 
             }
         ]))
-    }
-    
-    func rateApp(id : String) {
-        guard let url = URL(string : "itms-apps://itunes.apple.com/app/id\(id)?mt=8&action=write-review") else { return }
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-    }
-    
-    func contactMe() {
-        let email = "chuckzhb@hotmail.com"
-        if let url = URL(string: "mailto:\(email)") {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
-    }
-    
-    func openTwitter() {
-        let screenName =  "HaiboZhou2"
-        let appURL = URL(string: "twitter://user?screen_name=\(screenName)")!
-        let webURL = URL(string: "https://twitter.com/\(screenName)")!
-        
-        let application = UIApplication.shared
-        
-        if application.canOpenURL(appURL) {
-            application.open(appURL) // open url with twitter app
-        } else {
-            print("twitter page")
-            openMyURL(webURL: webURL) // open url with in-app safari
-        }
     }
     
     func openMyURL(webURL: URL) {
@@ -161,11 +122,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let model = models[indexPath.section].options[indexPath.row]
         cell.configure(with: model)
-        
-        // custom Restore purchase section
-//        if indexPath.section == 3 {
-//            cell.accessoryType = .none
-//        }
         
         return cell
     }
