@@ -1,18 +1,20 @@
 //
-//  InterstitialViewController.swift
+//  RewardsViewController.swift
 //  AppLovin Test Demo
 //
 //  Created by HaiboZhou on 2021/8/28.
 //
 
-/*
- Game logic: when the user click confirm button from "Game Over" UIAlertView,
-then the Interstitial ad will be triggered.
- */
+
+/* The settings of reward amount per video is "20", currency is "Coin".
+    Game logic:
+        1. When game is over, the user earn 1 coin.
+        2. After the user has watched a reward video, he/she would earn 20 coins
+*/
 
 import UIKit
 
-class InterstitialViewController: UIViewController {
+class RewardsViewController: UIViewController {
     
     enum GameState: NSInteger {
         case notStarted
@@ -21,18 +23,24 @@ class InterstitialViewController: UIViewController {
         case ended
     }
     
-    // The game length.
-    static let gameLength = 5
+    // Constant for coin rewards.
+    let gameOverReward = 1
+    
+    // Starting time for game counter.
+    let gameLength = 10
+    
+    // Number of coins the user has earned.
+    var coinCount: Int = 0 {
+        didSet {
+            coinCountLabel.text = "Coins: \(self.coinCount)"
+        }
+    }
     
     // The countdown timer.
     var timer: Timer?
     
-    // The amount of time left in the game.
-    var timeLeft: Int = gameLength {
-        didSet {
-            gameText.text = "\(timeLeft)"
-        }
-    }
+    // The game counter.
+    var counter = 10
     
     // The state of the game.
     var gameState = GameState.notStarted
@@ -58,7 +66,7 @@ class InterstitialViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemRed
-        label.font = .systemFont(ofSize: 72, weight: .bold)
+        label.font = .systemFont(ofSize: 52, weight: .bold)
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -76,26 +84,42 @@ class InterstitialViewController: UIViewController {
         btn.addTarget(self, action: #selector(playAgainButtonTapped(_:)), for: .touchUpInside)
         return btn
     }()
-
+    
+    // Text that indicates current coin count.
+    lazy var coinCountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 26, weight: .regular)
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .myGreen
-        title = "Welcome to my Game"
+        view.backgroundColor = .systemBackground
+        title = "Rewards Ad Demo"
         
         // Set UI layout
         setViews()
         
-        // Pause game when application enters background.
+        // Pause game when application is backgrounded.
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(pauseGame),
+            selector: #selector(applicationDidEnterBackground(_:)),
             name: UIApplication.didEnterBackgroundNotification, object: nil)
         
-        // Resume game when application becomes active.
+        // Resume game when application is returned to foreground.
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(resumeGame),
+            selector: #selector(applicationDidBecomeActive(_:)),
             name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        //
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(receiveValidReward),
+            name: .sendRewardToUser, object: nil)
         
         startNewGame()
     }
@@ -107,13 +131,22 @@ class InterstitialViewController: UIViewController {
         playAgainButton.layer.cornerCurve = .continuous
     }
     
+    @objc func receiveValidReward() {
+        if let reward = RewardedAdService.shared.reward {
+            print("👠 Reward received with Coins \(reward.amount)")
+            self.earnCoins(reward.amount)
+        }
+    }
+    
     // MARK: - setup UI layout
     
     func setViews() {
         view.addSubview(gameText)
         view.addSubview(gameHeader)
         view.addSubview(playAgainButton)
+        view.addSubview(coinCountLabel)
         
+        let g = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             gameText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gameText.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -126,45 +159,36 @@ class InterstitialViewController: UIViewController {
             playAgainButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             playAgainButton.topAnchor.constraint(equalTo: gameText.bottomAnchor, constant: 26),
             playAgainButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.42),
-            playAgainButton.heightAnchor.constraint(equalTo: playAgainButton.widthAnchor, multiplier: 0.25)
+            playAgainButton.heightAnchor.constraint(equalTo: playAgainButton.widthAnchor, multiplier: 0.25),
+            
+            coinCountLabel.leadingAnchor.constraint(equalTo: g.leadingAnchor, constant: 20),
+            coinCountLabel.bottomAnchor.constraint(equalTo: g.bottomAnchor, constant: -20),
+            coinCountLabel.widthAnchor.constraint(equalTo: g.widthAnchor, multiplier: 0.5),
+            coinCountLabel.heightAnchor.constraint(equalTo: coinCountLabel.widthAnchor, multiplier: 0.25)
         ])
     }
     
-    // MARK: - Game Logic
+    // MARK: - Game logic
     
     fileprivate func startNewGame() {
-        // Load Interstitial ad
-        loadInterstitial()
-        
         gameState = .playing
-        timeLeft = InterstitialViewController.gameLength
+        counter = gameLength
         playAgainButton.isHidden = true
-//        updateTimeLeft()
+        
+        // Load Reward ad
+        RewardedAdService.shared.createRewardedAd()
+        
+        gameText.text = String(counter)
         timer = Timer.scheduledTimer(
             timeInterval: 1.0,
             target: self,
-            selector: #selector(decrementTimeLeft(_:)),
+            selector: #selector(timerFireMethod(_:)),
             userInfo: nil,
             repeats: true)
     }
     
-    fileprivate func loadInterstitial() {
-        InterstitialAdService.shared.createInterstitialAd()
-    }
-    
-//    fileprivate func updateTimeLeft() {
-//        gameText.text = "\(timeLeft) secs left!"
-//    }
-    
-    @objc func decrementTimeLeft(_ timer: Timer) {
-        timeLeft -= 1
-//        updateTimeLeft()
-        if timeLeft == 0 {
-            endGame()
-        }
-    }
-    
-    @objc func pauseGame() {
+    @objc func applicationDidEnterBackground(_ notification: Notification) {
+        // Pause the game if it is currently playing.
         if gameState != .playing {
             return
         }
@@ -178,7 +202,8 @@ class InterstitialViewController: UIViewController {
         timer?.fireDate = Date.distantFuture
     }
     
-    @objc func resumeGame() {
+    @objc func applicationDidBecomeActive(_ notification: Notification) {
+        // Resume the game if it is currently paused.
         if gameState != .paused {
             return
         }
@@ -191,36 +216,51 @@ class InterstitialViewController: UIViewController {
         timer?.fireDate = (previousFireDate?.addingTimeInterval(pauseTime))!
     }
     
+    @objc func timerFireMethod(_ timer: Timer) {
+        counter -= 1
+        if counter > 0 {
+            gameText.text = String(counter)
+        } else {
+            endGame()
+        }
+    }
+    
+    fileprivate func earnCoins(_ coins: Int) {
+        coinCount += coins
+    }
+    
     fileprivate func endGame() {
         gameState = .ended
+        gameText.text = "Game over!"
+        playAgainButton.isHidden = false
         timer?.invalidate()
         timer = nil
-        
-        let alert = UIAlertController(
-            title: "Game Over",
-            message: "You lasted \(InterstitialViewController.gameLength) seconds",
-            preferredStyle: .alert)
-        let alertAction = UIAlertAction(
-            title: "OK",
-            style: .cancel,
-            handler: { [weak self] action in
-                // Show interstitial ad
-                if let ad = InterstitialAdService.shared.interstitialAd {
-                    ad.show()
-                } else {
-                    print("interstitial ad wasn't ready")
-                }
-                self?.playAgainButton.isHidden = false
-            })
-        alert.addAction(alertAction)
-        self.present(alert, animated: true, completion: nil)
+        earnCoins(gameOverReward)
     }
+    
+    // MARK: - Button actions
     
     @objc func playAgainButtonTapped(_ sender: Any?) {
-        startNewGame()
+        if let ad = RewardedAdService.shared.rewardedAd,
+           ad.isReady
+        {
+            // Show Reward ad
+            ad.show()
+        } else {
+            let alert = UIAlertController(
+                title: "Rewarded ad isn't available yet.",
+                message: "The rewarded ad cannot be shown at this time",
+                preferredStyle: .alert)
+            let alertAction = UIAlertAction(
+                title: "OK",
+                style: .cancel,
+                handler: { [weak self] action in
+                    self?.startNewGame()
+                })
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    
-    // MARK: - deinit
     
     deinit {
         NotificationCenter.default.removeObserver(

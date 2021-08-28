@@ -60,19 +60,16 @@ class HomeViewController: UIViewController, SFSafariViewControllerDelegate {
                 let vc = BannerViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
             },
-            HomeOption(title: ConstantNames.rewarded, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
-                print("Tapped Upgrade to Pro")
-                //                let vc = PremiumViewController()
-                //                self?.present(vc, animated: true)
-            }
         ]))
         
         models.append(Section(title: ConstantNames.rewards, options: [
-            HomeOption(title: "Rate app", titleColor: .label, icon: UIImage(systemName: "star.leadinghalf.fill"), iconBackgroundColor: .myGreen) { [weak self] in
-                self?.rateApp(id: "1579505526")
+            HomeOption(title: ConstantNames.rewardA, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
+                let vc = RewardsViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
             },
-            HomeOption(title: "Contact us", titleColor: .label, icon: UIImage(systemName: "envelope.fill"), iconBackgroundColor: .myEmailBlue) { [weak self] in
-                self?.contactMe()
+            HomeOption(title: ConstantNames.rewardB, titleColor: .label, icon: UIImage(systemName: "envelope.fill"), iconBackgroundColor: .myEmailBlue) { [weak self] in
+                let vc = RewardsBViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
             },
             HomeOption(title: "Twitter page", titleColor: .label, icon: UIImage(systemName: "envelope.fill"), iconBackgroundColor: .myEmailBlue) { [weak self] in
                 self?.openTwitter()
