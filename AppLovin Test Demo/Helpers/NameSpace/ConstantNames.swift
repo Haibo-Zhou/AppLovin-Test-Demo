@@ -27,4 +27,7 @@ enum ConstantNames {
     static let bannerAdUnit_ID = "bae2a525257e50ea"
     static let rewardAdUnit_ID = "a169f111208f1ec3"
     
+    // background image
+    static let bannerVCBgImage = "BannerVCBgImage"
+    
 }

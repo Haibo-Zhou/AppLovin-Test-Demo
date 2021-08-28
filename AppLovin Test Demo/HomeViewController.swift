@@ -53,14 +53,12 @@ class HomeViewController: UIViewController, SFSafariViewControllerDelegate {
     func configureCells() {
         models.append(Section(title: ConstantNames.interstitialAndBanner, options: [
             HomeOption(title: ConstantNames.interstitials, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
-                print("show interstitials Ad")
                 let vc = InterstitialViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
             },
             HomeOption(title: ConstantNames.banners, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
-                print("Tapped Upgrade to Pro")
-                //                let vc = PremiumViewController()
-                //                self?.present(vc, animated: true)
+                let vc = BannerViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
             },
             HomeOption(title: ConstantNames.rewarded, titleColor: .label, icon: UIImage(systemName: ConstantNames.crown), iconBackgroundColor: .systemPink) { [weak self] in
                 print("Tapped Upgrade to Pro")
