@@ -3,27 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA23442A19FB7BB6DAD25ECE /* Pods_AppLovin_Test_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBC9D1440D764FCD99ABAA9 /* Pods_AppLovin_Test_Demo.framework */; };
 		D0D5ED4E26D9393C00CF9C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED4D26D9393C00CF9C0C /* AppDelegate.swift */; };
 		D0D5ED5026D9393C00CF9C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED4F26D9393C00CF9C0C /* SceneDelegate.swift */; };
-		D0D5ED5226D9393C00CF9C0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED5126D9393C00CF9C0C /* ViewController.swift */; };
+		D0D5ED5226D9393C00CF9C0C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED5126D9393C00CF9C0C /* HomeViewController.swift */; };
 		D0D5ED5526D9393C00CF9C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D5ED5326D9393C00CF9C0C /* Main.storyboard */; };
 		D0D5ED5726D9393D00CF9C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D5ED5626D9393D00CF9C0C /* Assets.xcassets */; };
 		D0D5ED5A26D9393D00CF9C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D5ED5826D9393D00CF9C0C /* LaunchScreen.storyboard */; };
+		D0D5ED6326D9417C00CF9C0C /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED6226D9417C00CF9C0C /* HomeTableViewCell.swift */; };
+		D0D5ED6726D942FB00CF9C0C /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED6626D942FB00CF9C0C /* UIColor+Ext.swift */; };
+		D0D5ED6A26D94B3E00CF9C0C /* ConstantNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED6926D94B3E00CF9C0C /* ConstantNames.swift */; };
+		D0D5ED6E26D9D21E00CF9C0C /* ALAdMob.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED6D26D9D21E00CF9C0C /* ALAdMob.swift */; };
+		D0D5ED7226D9D4FB00CF9C0C /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED7126D9D4FB00CF9C0C /* InterstitialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EBC9D1440D764FCD99ABAA9 /* Pods_AppLovin_Test_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLovin_Test_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB691AEF028C61ECE303B95 /* Pods-AppLovin Test Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLovin Test Demo.release.xcconfig"; path = "Target Support Files/Pods-AppLovin Test Demo/Pods-AppLovin Test Demo.release.xcconfig"; sourceTree = "<group>"; };
+		C7B05F055238C0320DFD1696 /* Pods-AppLovin Test Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLovin Test Demo.debug.xcconfig"; path = "Target Support Files/Pods-AppLovin Test Demo/Pods-AppLovin Test Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		D0D5ED4A26D9393C00CF9C0C /* AppLovin Test Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppLovin Test Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D5ED4D26D9393C00CF9C0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D5ED4F26D9393C00CF9C0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D0D5ED5126D9393C00CF9C0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0D5ED5126D9393C00CF9C0C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D0D5ED5426D9393C00CF9C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0D5ED5626D9393D00CF9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0D5ED5926D9393D00CF9C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0D5ED5B26D9393D00CF9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0D5ED6226D9417C00CF9C0C /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		D0D5ED6626D942FB00CF9C0C /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		D0D5ED6926D94B3E00CF9C0C /* ConstantNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNames.swift; sourceTree = "<group>"; };
+		D0D5ED6D26D9D21E00CF9C0C /* ALAdMob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALAdMob.swift; sourceTree = "<group>"; };
+		D0D5ED7126D9D4FB00CF9C0C /* InterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA23442A19FB7BB6DAD25ECE /* Pods_AppLovin_Test_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69964393ECAD407B86DAB777 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7B05F055238C0320DFD1696 /* Pods-AppLovin Test Demo.debug.xcconfig */,
+				9BB691AEF028C61ECE303B95 /* Pods-AppLovin Test Demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		99487B1577C901D101750303 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC9D1440D764FCD99ABAA9 /* Pods_AppLovin_Test_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0D5ED4126D9393C00CF9C0C = {
 			isa = PBXGroup;
 			children = (
 				D0D5ED4C26D9393C00CF9C0C /* AppLovin Test Demo */,
 				D0D5ED4B26D9393C00CF9C0C /* Products */,
+				69964393ECAD407B86DAB777 /* Pods */,
+				99487B1577C901D101750303 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +90,68 @@
 		D0D5ED4C26D9393C00CF9C0C /* AppLovin Test Demo */ = {
 			isa = PBXGroup;
 			children = (
+				D0D5ED6B26D9D1DF00CF9C0C /* APIs */,
+				D0D5ED6426D942CE00CF9C0C /* Helpers */,
+				D0D5ED6126D9412700CF9C0C /* Views */,
 				D0D5ED4D26D9393C00CF9C0C /* AppDelegate.swift */,
 				D0D5ED4F26D9393C00CF9C0C /* SceneDelegate.swift */,
-				D0D5ED5126D9393C00CF9C0C /* ViewController.swift */,
+				D0D5ED5126D9393C00CF9C0C /* HomeViewController.swift */,
+				D0D5ED7126D9D4FB00CF9C0C /* InterstitialViewController.swift */,
 				D0D5ED5326D9393C00CF9C0C /* Main.storyboard */,
 				D0D5ED5626D9393D00CF9C0C /* Assets.xcassets */,
 				D0D5ED5826D9393D00CF9C0C /* LaunchScreen.storyboard */,
 				D0D5ED5B26D9393D00CF9C0C /* Info.plist */,
 			);
 			path = "AppLovin Test Demo";
+			sourceTree = "<group>";
+		};
+		D0D5ED6126D9412700CF9C0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5ED6226D9417C00CF9C0C /* HomeTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D0D5ED6426D942CE00CF9C0C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5ED6826D94B2C00CF9C0C /* NameSpace */,
+				D0D5ED6526D942D900CF9C0C /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D0D5ED6526D942D900CF9C0C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5ED6626D942FB00CF9C0C /* UIColor+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D0D5ED6826D94B2C00CF9C0C /* NameSpace */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5ED6926D94B3E00CF9C0C /* ConstantNames.swift */,
+			);
+			path = NameSpace;
+			sourceTree = "<group>";
+		};
+		D0D5ED6B26D9D1DF00CF9C0C /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5ED6C26D9D1E600CF9C0C /* AppLovin */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		D0D5ED6C26D9D1E600CF9C0C /* AppLovin */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5ED6D26D9D21E00CF9C0C /* ALAdMob.swift */,
+			);
+			path = AppLovin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +161,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0D5ED5E26D9393D00CF9C0C /* Build configuration list for PBXNativeTarget "AppLovin Test Demo" */;
 			buildPhases = (
+				D2FE644AF501E0487DD7BA9D /* [CP] Check Pods Manifest.lock */,
 				D0D5ED4626D9393C00CF9C0C /* Sources */,
 				D0D5ED4726D9393C00CF9C0C /* Frameworks */,
 				D0D5ED4826D9393C00CF9C0C /* Resources */,
+				BC6D28DA9EE248E6A1FEA40E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +221,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BC6D28DA9EE248E6A1FEA40E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppLovin Test Demo/Pods-AppLovin Test Demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppLovin Test Demo/Pods-AppLovin Test Demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppLovin Test Demo/Pods-AppLovin Test Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2FE644AF501E0487DD7BA9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppLovin Test Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D0D5ED4626D9393C00CF9C0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0D5ED5226D9393C00CF9C0C /* ViewController.swift in Sources */,
+				D0D5ED5226D9393C00CF9C0C /* HomeViewController.swift in Sources */,
 				D0D5ED4E26D9393C00CF9C0C /* AppDelegate.swift in Sources */,
+				D0D5ED6726D942FB00CF9C0C /* UIColor+Ext.swift in Sources */,
+				D0D5ED6A26D94B3E00CF9C0C /* ConstantNames.swift in Sources */,
+				D0D5ED7226D9D4FB00CF9C0C /* InterstitialViewController.swift in Sources */,
+				D0D5ED6E26D9D21E00CF9C0C /* ALAdMob.swift in Sources */,
+				D0D5ED6326D9417C00CF9C0C /* HomeTableViewCell.swift in Sources */,
 				D0D5ED5026D9393C00CF9C0C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +419,7 @@
 		};
 		D0D5ED5F26D9393D00CF9C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7B05F055238C0320DFD1696 /* Pods-AppLovin Test Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -293,6 +430,44 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AdSupport\"",
+					"-framework",
+					"\"AppLovinSDK\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+					"-weak_framework",
+					"\"AppTrackingTransparency\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.haibozhou.AppLovin-Test-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -302,6 +477,7 @@
 		};
 		D0D5ED6026D9393D00CF9C0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB691AEF028C61ECE303B95 /* Pods-AppLovin Test Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +487,44 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				NEW_SETTING = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AdSupport\"",
+					"-framework",
+					"\"AppLovinSDK\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+					"-weak_framework",
+					"\"AppTrackingTransparency\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.haibozhou.AppLovin-Test-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

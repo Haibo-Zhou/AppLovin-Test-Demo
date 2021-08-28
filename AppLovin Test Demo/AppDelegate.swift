@@ -5,6 +5,7 @@
 //  Created by HaiboZhou on 2021/8/27.
 //
 
+import AppLovinSDK
 import UIKit
 
 @main
@@ -13,7 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Please make sure to set the mediation provider value to "max" to ensure proper functionality
+        ALSdk.shared()!.mediationProvider = "max"
+        
+        ALSdk.shared()!.userIdentifier = "Haibo_Zhou"
+        
+        ALSdk.shared()!.initializeSdk { (configuration: ALSdkConfiguration) in
+            // Start loading ads
+        }
+        
         return true
     }
 

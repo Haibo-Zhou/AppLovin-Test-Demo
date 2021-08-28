@@ -1,0 +1,16 @@
+PODS:
+  - AppLovinSDK (10.3.4)
+
+DEPENDENCIES:
+  - AppLovinSDK
+
+SPEC REPOS:
+  trunk:
+    - AppLovinSDK
+
+SPEC CHECKSUMS:
+  AppLovinSDK: 5a28da8e9b298a11e9e878abcc98e21e7edbdad3
+
+PODFILE CHECKSUM: d43568e6deeb572bb4b8bdb68861e4f1b145c847
+
+COCOAPODS: 1.10.1
