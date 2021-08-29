@@ -6,6 +6,6 @@
 ////
 
 
-/* For future implementation, I want to separate BannerAd service from viewController,
+/* For future implementation, I want to find a way to separate BannerAd service from viewController,
  for clean & reuse purpose. */
 

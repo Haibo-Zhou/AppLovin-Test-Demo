@@ -24,7 +24,6 @@
 		D0D5ED7926DA1E1700CF9C0C /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED7826DA1E1700CF9C0C /* UIViewController+Ext.swift */; };
 		D0D5ED7B26DA271000CF9C0C /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED7A26DA271000CF9C0C /* RewardsViewController.swift */; };
 		D0D5ED7D26DA289E00CF9C0C /* RewardedAdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED7C26DA289E00CF9C0C /* RewardedAdService.swift */; };
-		D0D5ED7F26DA4D1400CF9C0C /* RewardsBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED7E26DA4D1400CF9C0C /* RewardsBViewController.swift */; };
 		D0D5ED8126DA519100CF9C0C /* NotificationCenter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5ED8026DA519100CF9C0C /* NotificationCenter+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		D0D5ED7826DA1E1700CF9C0C /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		D0D5ED7A26DA271000CF9C0C /* RewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
 		D0D5ED7C26DA289E00CF9C0C /* RewardedAdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdService.swift; sourceTree = "<group>"; };
-		D0D5ED7E26DA4D1400CF9C0C /* RewardsBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsBViewController.swift; sourceTree = "<group>"; };
 		D0D5ED8026DA519100CF9C0C /* NotificationCenter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,14 +105,14 @@
 				D0D5ED6B26D9D1DF00CF9C0C /* APIs */,
 				D0D5ED6426D942CE00CF9C0C /* Helpers */,
 				D0D5ED6126D9412700CF9C0C /* Views */,
+				D0D5ED7526DA157700CF9C0C /* ViewControllers */,
 				D0D5ED4D26D9393C00CF9C0C /* AppDelegate.swift */,
 				D0D5ED4F26D9393C00CF9C0C /* SceneDelegate.swift */,
 				D0D5ED5126D9393C00CF9C0C /* HomeViewController.swift */,
-				D0D5ED7526DA157700CF9C0C /* ViewControllers */,
 				D0D5ED5326D9393C00CF9C0C /* Main.storyboard */,
 				D0D5ED5626D9393D00CF9C0C /* Assets.xcassets */,
 				D0D5ED5826D9393D00CF9C0C /* LaunchScreen.storyboard */,
-				D0D5ED5B26D9393D00CF9C0C /* Info.plist */,
+				D0D5ED8226DA845400CF9C0C /* Supporting Files */,
 			);
 			path = "AppLovin Test Demo";
 			sourceTree = "<group>";
@@ -178,9 +176,16 @@
 				D0D5ED7126D9D4FB00CF9C0C /* InterstitialViewController.swift */,
 				D0D5ED7626DA159500CF9C0C /* BannerViewController.swift */,
 				D0D5ED7A26DA271000CF9C0C /* RewardsViewController.swift */,
-				D0D5ED7E26DA4D1400CF9C0C /* RewardsBViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D0D5ED8226DA845400CF9C0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5ED5B26D9393D00CF9C0C /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +304,6 @@
 			files = (
 				D0D5ED7726DA159500CF9C0C /* BannerViewController.swift in Sources */,
 				D0D5ED5226D9393C00CF9C0C /* HomeViewController.swift in Sources */,
-				D0D5ED7F26DA4D1400CF9C0C /* RewardsBViewController.swift in Sources */,
 				D0D5ED4E26D9393C00CF9C0C /* AppDelegate.swift in Sources */,
 				D0D5ED7926DA1E1700CF9C0C /* UIViewController+Ext.swift in Sources */,
 				D0D5ED6726D942FB00CF9C0C /* UIColor+Ext.swift in Sources */,
@@ -461,7 +465,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BV97A5VZCV;
-				INFOPLIST_FILE = "AppLovin Test Demo/Info.plist";
+				INFOPLIST_FILE = "AppLovin Test Demo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,7 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BV97A5VZCV;
-				INFOPLIST_FILE = "AppLovin Test Demo/Info.plist";
+				INFOPLIST_FILE = "AppLovin Test Demo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

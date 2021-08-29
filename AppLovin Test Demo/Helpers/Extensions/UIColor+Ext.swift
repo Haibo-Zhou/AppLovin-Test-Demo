@@ -8,7 +8,8 @@
 import UIKit
 
 extension UIColor {
-    /// color components value between 0 to 255
+    // color components value between 0 to 255
+    
     public convenience init(r: Int, g: Int, b: Int, alpha: CGFloat = 1.0) {
         self.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
     }
@@ -22,8 +23,7 @@ extension UIColor {
     static let myEmailBlue: UIColor = UIColor(r: 29, g: 120, b: 242)
     static let AppLovinBlue: UIColor = UIColor(r: 10, g: 131, b: 170)
     
-//    static let bgColor: UIColor = UIColor(named: "bgColor")!
-//    static let buttonColor: UIColor = UIColor(named: "buttonColor")!
+    // Hex code colors
     
     static let myBlueHexcode: UInt = 0x2866BF
     static let myGreenHexcode: UInt = 0x28B473

@@ -43,6 +43,7 @@ class InterstitialViewController: UIViewController {
     // The last fire date before a pause.
     var previousFireDate: Date?
     
+    // Game header label
     lazy var gameHeader: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +81,7 @@ class InterstitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .myGreen
-        title = "Welcome to my Game"
+        title = ConstantNames.InterVCTitle
         
         // Set UI layout
         setViews()
@@ -139,7 +140,6 @@ class InterstitialViewController: UIViewController {
         gameState = .playing
         timeLeft = InterstitialViewController.gameLength
         playAgainButton.isHidden = true
-//        updateTimeLeft()
         timer = Timer.scheduledTimer(
             timeInterval: 1.0,
             target: self,
@@ -152,13 +152,8 @@ class InterstitialViewController: UIViewController {
         InterstitialAdService.shared.createInterstitialAd()
     }
     
-//    fileprivate func updateTimeLeft() {
-//        gameText.text = "\(timeLeft) secs left!"
-//    }
-    
     @objc func decrementTimeLeft(_ timer: Timer) {
         timeLeft -= 1
-//        updateTimeLeft()
         if timeLeft == 0 {
             endGame()
         }

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Please make sure to set the mediation provider value to "max" to ensure proper functionality
         ALSdk.shared()!.mediationProvider = "max"
         
-        ALSdk.shared()!.userIdentifier = "Haibo_Zhou"
+        ALSdk.shared()!.userIdentifier = ConstantNames.userIdentifier
         
         ALSdk.shared()!.initializeSdk { (configuration: ALSdkConfiguration) in
             // Start loading ads

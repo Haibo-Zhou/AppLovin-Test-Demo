@@ -8,7 +8,7 @@
 import SafariServices
 import UIKit
 
-// MARK: - Data Model for tableView cell
+// MARK: - Data model for tableView cell
 struct Section {
     let title: String
     let options: [HomeOption]
@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, SFSafariViewControllerDelegate {
         super.viewDidLoad()
         configureCells()
         view.backgroundColor = .systemBackground
-        self.title = ConstantNames.appLovinTestDemo
+        self.title = ConstantNames.homeVCTitle
         navigationController?.navigationBar.prefersLargeTitles = false
         view.addSubview(tableView)
         tableView.delegate = self
@@ -65,26 +65,28 @@ class HomeViewController: UIViewController, SFSafariViewControllerDelegate {
         models.append(Section(title: ConstantNames.rewards, options: [
             HomeOption(title: ConstantNames.rewardA, titleColor: .label, icon: UIImage(systemName: ConstantNames.letterA), iconBackgroundColor: .systemPink) { [weak self] in
                 let vc = RewardsViewController()
+                RewardedAdService.shared.rewardUnitIDType = ConstantNames.typeA
                 self?.navigationController?.pushViewController(vc, animated: true)
             },
             HomeOption(title: ConstantNames.rewardB, titleColor: .label, icon: UIImage(systemName: ConstantNames.letterB), iconBackgroundColor: .myPuple) { [weak self] in
-                let vc = RewardsBViewController()
+                let vc = RewardsViewController()
+                RewardedAdService.shared.rewardUnitIDType = ConstantNames.typeB
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
         ]))
         
         models.append(Section(title: ConstantNames.support, options: [
-            HomeOption(title: ConstantNames.supportSite, titleColor: .label, icon: UIImage(named: "logo"), iconBackgroundColor: .AppLovinBlue) { [weak self] in
+            HomeOption(title: ConstantNames.supportSite, titleColor: .label, icon: UIImage(named: ConstantNames.logo), iconBackgroundColor: .AppLovinBlue) { [weak self] in
                 guard let url = URL(string: ConstantNames.supportSiteURL) else { return }
                 self?.openMyURL(webURL: url)
             },
-            HomeOption(title: "TBD...", titleColor: .label, icon: UIImage(systemName: ConstantNames.tbd), iconBackgroundColor: .systemGray3) {
+            HomeOption(title: ConstantNames.tbdTitle, titleColor: .label, icon: UIImage(systemName: ConstantNames.tbd), iconBackgroundColor: .systemGray3) {
                 
             },
         ]))
         
         models.append(Section(title: "", options: [
-            HomeOption(title: "TBD...", titleColor: .label, icon: UIImage(systemName: ConstantNames.tbd), iconBackgroundColor: .systemGray3) {
+            HomeOption(title: ConstantNames.tbdTitle, titleColor: .label, icon: UIImage(systemName: ConstantNames.tbd), iconBackgroundColor: .systemGray3) {
                 
             }
         ]))

@@ -19,9 +19,13 @@ class RewardedAdService: NSObject {
     var retryAttempt = 0.0
     var reward: MAReward?
     
-    func createRewardedAd()
-    {
-        rewardedAd = MARewardedAd.shared(withAdUnitIdentifier: ConstantNames.rewardAd_A_Unit_ID)
+    // indicate which rewardAd unitId type to use, 'A' or 'B'
+    var rewardUnitIDType = ""
+    
+    func createRewardedAd() {
+        print("🌈 🌈 rewardUnitIDType: \(rewardUnitIDType)")
+        let adUnitID = (rewardUnitIDType == ConstantNames.typeA) ? ConstantNames.rewardAd_A_Unit_ID : ConstantNames.rewardAd_B_Unit_ID
+        rewardedAd = MARewardedAd.shared(withAdUnitIdentifier: adUnitID)
         guard let rewardedAd = rewardedAd else { return }
         rewardedAd.delegate = self
         
@@ -87,8 +91,10 @@ extension RewardedAdService: MARewardedAdDelegate {
     func didRewardUser(for ad: MAAd, with reward: MAReward)
     {
         // Rewarded ad was displayed and user should receive the reward
-        print("👠 Give user reward coins")
+        print("👠 Give user 20 reward coins")
         self.reward = reward
+        
+        // post notification when a valid reward is returned
         NotificationCenter.default.post(name: .sendRewardToUser, object: nil)
     }
 }

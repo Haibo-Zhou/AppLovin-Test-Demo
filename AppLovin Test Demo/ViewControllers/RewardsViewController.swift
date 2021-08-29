@@ -51,6 +51,7 @@ class RewardsViewController: UIViewController {
     // The last fire date before a pause.
     var previousFireDate: Date?
     
+    // game header label
     lazy var gameHeader: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -98,7 +99,8 @@ class RewardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .myGreen
-        title = "Rewards Ad Demo"
+        title = (RewardedAdService.shared.rewardUnitIDType == ConstantNames.typeA) ? ConstantNames.rewardVCTitleA :
+            ConstantNames.rewardVCTitleB
         
         // Set UI layout
         setViews()
@@ -115,7 +117,7 @@ class RewardsViewController: UIViewController {
             selector: #selector(applicationDidBecomeActive(_:)),
             name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        //
+        // Update coins amount when receive valid reward
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(receiveValidReward),

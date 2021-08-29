@@ -19,7 +19,7 @@ class BannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Banner Ad Demo"
+        title = ConstantNames.bannerVCTitle
         setBackgroundImage(imageName: ConstantNames.bannerVCBgImage)
         adView.delegate = self
         
@@ -28,7 +28,8 @@ class BannerViewController: UIViewController {
         
         // load banner ad
         adView.loadAd()
-        // set banner ad to auto refresh mode
+        // show banner ad and set it to auto refresh mode
+        adView.isHidden = false
         adView.startAutoRefresh()
     }
     
