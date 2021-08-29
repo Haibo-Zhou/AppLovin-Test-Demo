@@ -42,13 +42,13 @@ enum ConstantNames {
     static let supportSiteURL = "https://www.applovin.com/support/"
     
     // userIdentifier
-    static let userIdentifier = "Haibo Zhou"
+    static let userIdentifier = ""
     
     // Ad Unit ID
-    static let interstitialAdUnit_ID = "f452c436b79988db"
-    static let bannerAdUnit_ID = "bae2a525257e50ea"
-    static let rewardAd_A_Unit_ID = "a169f111208f1ec3"
-    static let rewardAd_B_Unit_ID = "202e6a864b4c6408"
+    static let interstitialAdUnit_ID = ""
+    static let bannerAdUnit_ID = ""
+    static let rewardAd_A_Unit_ID = ""
+    static let rewardAd_B_Unit_ID = ""
     
     // background images
     static let bannerVCBgImage = "BannerVCBgImage"
